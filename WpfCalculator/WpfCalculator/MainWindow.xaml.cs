@@ -20,9 +20,9 @@ namespace WpfCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        double lastNumber;
-        double result;
-        SelectedOperator selectedOperator;
+        private double lastNumber;
+        private double result;
+        private SelectedOperator selectedOperator;
 
         public MainWindow()
         {
@@ -160,37 +160,6 @@ namespace WpfCalculator
             if (labelResults.Content != null 
                 && !labelResults.Content.ToString().Contains("."))
                 labelResults.Content = $"{labelResults.Content}.";
-        }
-    }
-
-    public enum SelectedOperator
-    {
-        Addition,
-        Subtraction,
-        Multiplication,
-        Division
-    }
-
-    public class SimpleMath
-    {
-        public static double Add(double n1, double n2)
-        {
-            return n1 + n2;
-        }
-
-        public static double Subtraction(double n1, double n2)
-        {
-            return n1 - n2;
-        }
-
-        public static double Multiply(double n1, double n2)
-        {
-            return n1 * n2;
-        }
-
-        public static double Divide(double n1, double n2)
-        {
-            return n1 / n2;
         }
     }
 }
