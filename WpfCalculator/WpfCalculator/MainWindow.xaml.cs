@@ -24,5 +24,17 @@ namespace WpfCalculator
         {
             InitializeComponent();
         }
+
+        private void Button7_Click(object sender, RoutedEventArgs e)
+        {
+            if (labelResults.Content?.ToString() == "0")
+            {
+                labelResults.Content = "7";
+            }
+            else
+            {
+                labelResults.Content = $"{labelResults.Content}7";
+            }
+        }
     }
 }

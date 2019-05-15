@@ -8,131 +8,132 @@
         Title="MainWindow"
         Height="525"
         Width="350">
-  <Grid Margin="10">
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="*" />
-      <ColumnDefinition Width="*" />
-      <ColumnDefinition Width="*" />
-      <ColumnDefinition Width="*" />
-    </Grid.ColumnDefinitions>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="2*" />
-      <RowDefinition Height="*" />
-      <RowDefinition Height="*" />
-      <RowDefinition Height="*" />
-      <RowDefinition Height="*" />
-      <RowDefinition Height="*" />
-    </Grid.RowDefinitions>
-    <Label x:Name="labelResults"
-           Content="0"
-           HorizontalAlignment="Right"
-           VerticalAlignment="Bottom"
-           FontSize="60"
-           Grid.ColumnSpan="4" />
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label x:Name="labelResults"
+               Content="0"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Bottom"
+               FontSize="60"
+               Grid.ColumnSpan="4" />
 
-    <!--Row 1 (Results)-->
-    <Button x:Name="buttonAC"
-            Content="AC"
-            Margin="5"
-            Grid.Column="0"
-            Grid.Row="1" />
-    <Button x:Name="buttonPlusMinus"
-            Content="+/-"
-            Margin="5"
-            Grid.Column="1"
-            Grid.Row="1" />
-    <Button x:Name="buttonPercent"
-            Content="%"
-            Margin="5"
-            Grid.Column="2"
-            Grid.Row="1" />
-    <Button x:Name="buttonDivide"
-            Content="/"
-            Margin="5"
-            Grid.Column="3"
-            Grid.Row="1" />
+        <!--Row 1 (Results)-->
+        <Button x:Name="buttonAC"
+                Content="AC"
+                Margin="5"
+                Grid.Column="0"
+                Grid.Row="1" />
+        <Button x:Name="buttonPlusMinus"
+                Content="+/-"
+                Margin="5"
+                Grid.Column="1"
+                Grid.Row="1" />
+        <Button x:Name="buttonPercent"
+                Content="%"
+                Margin="5"
+                Grid.Column="2"
+                Grid.Row="1" />
+        <Button x:Name="buttonDivide"
+                Content="/"
+                Margin="5"
+                Grid.Column="3"
+                Grid.Row="1" />
 
-    <!--Row 2-->
-    <Button x:Name="button7"
-            Content="7"
-            Margin="5"
-            Grid.Column="0"
-            Grid.Row="2" />
-    <Button x:Name="button8"
-            Content="8"
-            Margin="5"
-            Grid.Column="1"
-            Grid.Row="2" />
-    <Button x:Name="button9"
-            Content="9"
-            Margin="5"
-            Grid.Column="2"
-            Grid.Row="2" />
-    <Button x:Name="buttonMultiply"
-            Content="*"
-            Margin="5"
-            Grid.Column="3"
-            Grid.Row="2" />
+        <!--Row 2-->
+        <Button x:Name="button7"
+                Click="Button7_Click"
+                Content="7"
+                Margin="5"
+                Grid.Column="0"
+                Grid.Row="2" />
+        <Button x:Name="button8"
+                Content="8"
+                Margin="5"
+                Grid.Column="1"
+                Grid.Row="2" />
+        <Button x:Name="button9"
+                Content="9"
+                Margin="5"
+                Grid.Column="2"
+                Grid.Row="2" />
+        <Button x:Name="buttonMultiply"
+                Content="*"
+                Margin="5"
+                Grid.Column="3"
+                Grid.Row="2" />
 
-    <!--Row 3-->
-    <Button x:Name="button4"
-            Content="4"
-            Margin="5"
-            Grid.Column="0"
-            Grid.Row="3" />
-    <Button x:Name="button5"
-            Content="5"
-            Margin="5"
-            Grid.Column="1"
-            Grid.Row="3" />
-    <Button x:Name="button6"
-            Content="6"
-            Margin="5"
-            Grid.Column="2"
-            Grid.Row="3" />
-    <Button x:Name="buttonMinus"
-            Content="-"
-            Margin="5"
-            Grid.Column="3"
-            Grid.Row="3" />
+        <!--Row 3-->
+        <Button x:Name="button4"
+                Content="4"
+                Margin="5"
+                Grid.Column="0"
+                Grid.Row="3" />
+        <Button x:Name="button5"
+                Content="5"
+                Margin="5"
+                Grid.Column="1"
+                Grid.Row="3" />
+        <Button x:Name="button6"
+                Content="6"
+                Margin="5"
+                Grid.Column="2"
+                Grid.Row="3" />
+        <Button x:Name="buttonMinus"
+                Content="-"
+                Margin="5"
+                Grid.Column="3"
+                Grid.Row="3" />
 
-    <!--Row 4-->
-    <Button x:Name="button1"
-            Content="1"
-            Margin="5"
-            Grid.Column="0"
-            Grid.Row="4" />
-    <Button x:Name="button2"
-            Content="2"
-            Margin="5"
-            Grid.Column="1"
-            Grid.Row="4" />
-    <Button x:Name="button3"
-            Content="3"
-            Margin="5"
-            Grid.Column="2"
-            Grid.Row="4" />
-    <Button x:Name="buttonPlus"
-            Content="+"
-            Margin="5"
-            Grid.Column="3"
-            Grid.Row="4" />
+        <!--Row 4-->
+        <Button x:Name="button1"
+                Content="1"
+                Margin="5"
+                Grid.Column="0"
+                Grid.Row="4" />
+        <Button x:Name="button2"
+                Content="2"
+                Margin="5"
+                Grid.Column="1"
+                Grid.Row="4" />
+        <Button x:Name="button3"
+                Content="3"
+                Margin="5"
+                Grid.Column="2"
+                Grid.Row="4" />
+        <Button x:Name="buttonPlus"
+                Content="+"
+                Margin="5"
+                Grid.Column="3"
+                Grid.Row="4" />
 
-    <!--Row 5-->
-    <Button x:Name="button0"
-            Content="0"
-            Margin="5"
-            Grid.ColumnSpan="2"
-            Grid.Row="5" />
-    <Button x:Name="buttonPeriod"
-            Content="."
-            Margin="5"
-            Grid.Column="2"
-            Grid.Row="5" />
-    <Button x:Name="buttonEquals"
-            Content="="
-            Margin="5"
-            Grid.Column="3"
-            Grid.Row="5" />
-  </Grid>
+        <!--Row 5-->
+        <Button x:Name="button0"
+                Content="0"
+                Margin="5"
+                Grid.ColumnSpan="2"
+                Grid.Row="5" />
+        <Button x:Name="buttonPeriod"
+                Content="."
+                Margin="5"
+                Grid.Column="2"
+                Grid.Row="5" />
+        <Button x:Name="buttonEquals"
+                Content="="
+                Margin="5"
+                Grid.Column="3"
+                Grid.Row="5" />
+    </Grid>
 </Window>
