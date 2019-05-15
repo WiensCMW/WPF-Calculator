@@ -22,6 +22,7 @@ namespace WpfCalculator
     {
         double lastNumber;
         double result;
+        SelectedOperator selectedOperator;
 
         public MainWindow()
         {
@@ -35,11 +36,44 @@ namespace WpfCalculator
 
         private void ButtonEquals_Click(object sender, RoutedEventArgs e)
         {
+            double newNumber;
+            if (double.TryParse(labelResults.Content?.ToString(), out newNumber))
+            {
+                switch(selectedOperator)
+                {
+                    case SelectedOperator.Addition:
+                        {
+                            result = SimpleMath.Add(lastNumber, newNumber);
+                            break;
+                        }
+                    case SelectedOperator.Subtraction:
+                        {
+                            result = SimpleMath.Subtraction(lastNumber, newNumber);
+                            break;
+                        }
+                    case SelectedOperator.Multiplication:
+                        {
+                            result = SimpleMath.Multiply(lastNumber, newNumber);
+                            break;
+                        }
+                    case SelectedOperator.Division:
+                        {
+                            result = SimpleMath.Divide(lastNumber, newNumber);
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
 
+                labelResults.Content = result.ToString();
+            }
         }
 
         private void ButtonPercent_Click(object sender, RoutedEventArgs e)
         {
+            // Divide existing value by 100
             if (double.TryParse(labelResults.Content?.ToString(), out lastNumber))
             {
                 lastNumber = lastNumber / 100;
@@ -49,6 +83,7 @@ namespace WpfCalculator
 
         private void ButtonNegative_Click(object sender, RoutedEventArgs e)
         {
+            // Flip existing value into either positive or negative
             if (double.TryParse(labelResults.Content?.ToString(), out lastNumber))
             {
                 lastNumber = lastNumber * -1;
@@ -63,10 +98,22 @@ namespace WpfCalculator
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)
         {
+            // Parse label results to lastNumber variable
             if (double.TryParse(labelResults.Content?.ToString(), out lastNumber))
             {
+                // Zero out the result label in preperation of the operation which is run when the equals button is clicked.
                 labelResults.Content = "0";
             }
+
+            // Assign correct selected operator based on button clicked.
+            if (sender == buttonMultiply)
+                selectedOperator = SelectedOperator.Multiplication;
+            else if (sender == buttonDivide)
+                selectedOperator = SelectedOperator.Division;
+            else if (sender == buttonPlus)
+                selectedOperator = SelectedOperator.Addition;
+            else if (sender == buttonMinus)
+                selectedOperator = SelectedOperator.Subtraction;
         }
 
         private void NumberButton_Click(object sender, RoutedEventArgs e)
@@ -106,6 +153,44 @@ namespace WpfCalculator
                 // Label results != 0, so we add the new clicked value to the end of the existing value.
                 labelResults.Content = $"{labelResults.Content}{selectedValue}";
             }
+        }
+
+        private void ButtonPeriod_Click(object sender, RoutedEventArgs e)
+        {
+            if (labelResults.Content != null 
+                && !labelResults.Content.ToString().Contains("."))
+                labelResults.Content = $"{labelResults.Content}.";
+        }
+    }
+
+    public enum SelectedOperator
+    {
+        Addition,
+        Subtraction,
+        Multiplication,
+        Division
+    }
+
+    public class SimpleMath
+    {
+        public static double Add(double n1, double n2)
+        {
+            return n1 + n2;
+        }
+
+        public static double Subtraction(double n1, double n2)
+        {
+            return n1 - n2;
+        }
+
+        public static double Multiply(double n1, double n2)
+        {
+            return n1 * n2;
+        }
+
+        public static double Divide(double n1, double n2)
+        {
+            return n1 / n2;
         }
     }
 }
