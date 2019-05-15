@@ -36,7 +36,7 @@
                 Margin="5"
                 Grid.Column="0"
                 Grid.Row="1" />
-        <Button x:Name="buttonPlusMinus"
+        <Button x:Name="buttonNegative"
                 Content="+/-"
                 Margin="5"
                 Grid.Column="1"

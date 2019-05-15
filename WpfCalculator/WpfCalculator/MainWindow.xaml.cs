@@ -20,9 +20,45 @@ namespace WpfCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        double lastNumber;
+        double result;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            buttonAC.Click += ButtonAC_Click;
+            buttonNegative.Click += ButtonNegative_Click;
+            buttonPercent.Click += ButtonPercent_Click;
+            buttonEquals.Click += ButtonEquals_Click;
+        }
+
+        private void ButtonEquals_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonPercent_Click(object sender, RoutedEventArgs e)
+        {
+            if (double.TryParse(labelResults.Content?.ToString(), out lastNumber))
+            {
+                lastNumber = lastNumber / 100;
+                labelResults.Content = lastNumber.ToString();
+            }
+        }
+
+        private void ButtonNegative_Click(object sender, RoutedEventArgs e)
+        {
+            if (double.TryParse(labelResults.Content?.ToString(), out lastNumber))
+            {
+                lastNumber = lastNumber * -1;
+                labelResults.Content = lastNumber.ToString();
+            }
+        }
+
+        private void ButtonAC_Click(object sender, RoutedEventArgs e)
+        {
+            labelResults.Content = "0";
         }
 
         private void Button7_Click(object sender, RoutedEventArgs e)
