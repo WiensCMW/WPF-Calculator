@@ -120,7 +120,7 @@ namespace WpfCalculator
         {
             // Get the value of the clicked button
             int selectedValue = 0;
-// pull test
+
             if (sender == button0)
                 selectedValue = 0;
             else if (sender == button1)
