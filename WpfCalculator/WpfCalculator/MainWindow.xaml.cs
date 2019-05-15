@@ -73,11 +73,17 @@ namespace WpfCalculator
 
         private void ButtonPercent_Click(object sender, RoutedEventArgs e)
         {
-            // Divide existing value by 100
-            if (double.TryParse(labelResults.Content?.ToString(), out lastNumber))
+            if (double.TryParse(labelResults.Content?.ToString(), out double percNumber))
             {
-                lastNumber = lastNumber / 100;
-                labelResults.Content = lastNumber.ToString();
+                // Calculate percentage of entered number
+                percNumber = percNumber / 100;
+
+                // If lastNumber != 0, we set the percNumber to itself multiplied by the last number
+                if (lastNumber != 0)
+                    percNumber *= lastNumber;
+
+                // Pass the calculate percentage to the result label.
+                labelResults.Content = percNumber.ToString();
             }
         }
 
@@ -94,6 +100,8 @@ namespace WpfCalculator
         private void ButtonAC_Click(object sender, RoutedEventArgs e)
         {
             labelResults.Content = "0";
+            lastNumber = 0;
+            result = 0;
         }
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)
