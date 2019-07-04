@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfCalculator.Classes;
 
 namespace WpfCalculator
 {
@@ -109,7 +110,7 @@ namespace WpfCalculator
             // Parse label results to lastNumber variable
             if (double.TryParse(labelResults.Content?.ToString(), out lastNumber))
             {
-                // Zero out the result label in preperation of the operation which is run when the equals button is clicked.
+                // Zero out the result label in preparation of the operation which is run when the equals button is clicked.
                 labelResults.Content = "0";
             }
 
@@ -168,6 +169,14 @@ namespace WpfCalculator
             if (labelResults.Content != null 
                 && !labelResults.Content.ToString().Contains("."))
                 labelResults.Content = $"{labelResults.Content}.";
+        }
+
+        private void ButtonEquals_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (double.TryParse(labelResults.Content.ToString(), out double value))
+            {
+                AppState.ChangeAppStyleFontSize(value);
+            }
         }
     }
 }

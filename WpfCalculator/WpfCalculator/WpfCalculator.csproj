@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\AppState.cs" />
     <Compile Include="Classes\SelectedOperator.cs" />
     <Compile Include="Classes\SimpleMath.cs" />
     <Page Include="MainWindow.xaml">
